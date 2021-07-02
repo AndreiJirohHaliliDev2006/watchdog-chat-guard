@@ -91,11 +91,14 @@ const isPublic = async (username: string) => {
 
 const inviteLinkToGroupID = (url: URL) => {
 	if (url.pathname.toLowerCase().startsWith("/joinchat/")) {
-		const [, groupID] = jspack.Unpack(
+		const res = jspack.Unpack(
 			">LLQ",
 			Buffer.from(url.pathname.split("/")[2], "base64")
 		);
-		return groupID;
+		if (Array.isArray(res)) {
+			const [, groupID] = res;
+			return groupID;
+		}
 	}
 	return null;
 };
@@ -115,7 +118,11 @@ const dh = {
 	tme: async (url: URL) => {
 		if (url.pathname === "/") return Action.Nothing;
 		if (url.pathname.toLowerCase().startsWith("/c/")) return Action.Nothing;
+		if (url.pathname.toLowerCase().startsWith("/addtheme/")) return Action.Nothing;
 		if (url.pathname.toLowerCase().startsWith("/addstickers/")) {
+			return Action.Nothing;
+		}
+		if (url.pathname.toLowerCase().startsWith("/setlanguage/")) {
 			return Action.Nothing;
 		}
 		if (url.searchParams.has("start")) return Action.Warn("Bot reflink");

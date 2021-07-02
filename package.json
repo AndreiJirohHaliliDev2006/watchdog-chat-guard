@@ -1,7 +1,7 @@
 {
   "name": "the_guard_bot",
   "version": "1.4.0",
-  "description": "Telegram guard bot to manage network of groups.",
+  "description": "Telegram guard bot to manage a network of groups.",
   "main": "index.js",
   "scripts": {
     "postversion": "git push --atomic --follow-tags origin develop develop:master",
@@ -22,7 +22,10 @@
   "author": "Thomas Rory Gummerson <thomas@gummerson.no> (https://trgwii.no)",
   "contributors": [
     "Pouria Ezzati <pouria@thedevs.network> (https://thedevs.network)",
-    "Wojciech Pawlik <woj.pawlik@gmail.com>"
+    "Wojciech Pawlik <woj.pawlik@gmail.com>",
+    "Muthu Kumar <mkr@feathers.studio> (https://mkr.pw)",
+    "Simon Schürrle (https://sitischu.com)",
+    "Martin Rys (https://rys.pw)"
   ],
   "license": "AGPL-3.0",
   "bugs": {
@@ -39,7 +42,7 @@
     "require-directory": "^2.1.1",
     "spamwatch": "^0.2.0",
     "string-replace-async": "^1.2.1",
-    "telegraf": "^3.38.0",
+    "telegraf": "^4.3.0",
     "ts-node": "^8.9.1",
     "typescript": "^3.8.3",
     "xregexp": "^4.2.0"
